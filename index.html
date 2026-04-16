@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="cloudflare-email-decode" content="off">
+    <meta name="cf-2fa" content="off">
+    <title>Charlottenlund Rotary Charity | Charity Golf 2026</title>
+    <meta name="description" content="CRK Charity Golf 2026 – Når golf gør en forskel. Støt velgørende formål gennem en uforglemmelig golfdag. Få ledige pladser!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0e3268;
+            --navy-light: #143d7a;
+            --navy-mid: #17468e;
+            --gold: #e8a733;
+            --gold-light: #f0be5a;
+            --gold-dim: rgba(232, 167, 51, 0.15);
+            --cream: #f4f1ec;
+            --cream-dark: #e2dcd0;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-muted: #6b7280;
+            --text-light: rgba(255,255,255,0.7);
+            --green-fairway: #2d5a27;
+            --green-light: #4a8c3f;
+            --section-pad: clamp(60px, 10vw, 120px);
+            --container: min(1200px, 90vw);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        h2 em, h1 em { font-style: italic; color: var(--gold); }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+
+        /* ── NAVIGATION ── */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 14px 0; transition: all 0.4s ease; background: transparent;
+        }
+        .nav.scrolled {
+            background: rgba(14, 50, 104, 0.95); backdrop-filter: blur(20px);
+            padding: 10px 0; box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+        .nav-inner {
+            max-width: var(--container); margin: 0 auto; padding: 0 20px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+            font-weight: 600; color: var(--white); letter-spacing: 0.5px;
+        }
+        .nav-logo span { color: var(--gold); font-weight: 700; }
+        .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+        .nav-links a {
+            color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 500;
+            letter-spacing: 0.3px; transition: color 0.3s; text-transform: uppercase;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta-next {
+            background: var(--gold) !important; color: var(--navy) !important;
+            padding: 6px 14px; border-radius: 4px; font-weight: 600 !important;
+            transition: all 0.3s !important; font-size: 0.75rem !important;
+            white-space: nowrap; line-height: 1.2;
+        }
+        .nav-cta-next:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: all 0.3s; }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative; min-height: 100vh; display: flex; align-items: center;
+            background: linear-gradient(165deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy-mid) 100%);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -50%; right: -20%; width: 80%; height: 200%;
+            background: radial-gradient(ellipse, rgba(232, 167, 51, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+            background: linear-gradient(to top, var(--cream), transparent);
+            pointer-events: none; z-index: 2;
+        }
+        .hero-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            align-items: center; position: relative; z-index: 1; padding-top: 100px;
+        }
+        .hero-tag {
+            font-size: 0.8rem; font-weight: 600; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+            display: block; opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+        .hero h1 {
+            font-size: clamp(2.4rem, 4.5vw, 4rem); color: var(--white);
+            margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+        }
+        .hero-sub {
+            font-size: 1.1rem; color: var(--text-light); max-width: 500px;
+            margin-bottom: 20px; line-height: 1.8; opacity: 0;
+            animation: fadeUp 0.8s ease 0.7s forwards;
+        }
+        .hero-actions {
+            display: flex; gap: 16px; flex-wrap: wrap;
+            opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards;
+        }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px; font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem; font-weight: 600; border-radius: 4px;
+            transition: all 0.3s ease; cursor: pointer; border: none; text-decoration: none;
+        }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(232, 167, 51, 0.3); }
+        .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.3); }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* Sold out button */
+        .btn-soldout {
+            background: #444 !important; color: rgba(255,255,255,0.35) !important;
+            cursor: not-allowed !important; position: relative; pointer-events: none;
+            padding: 14px 32px; border-radius: 4px; font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem; font-weight: 600; display: inline-flex;
+        }
+        .soldout-stamp {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-8deg);
+            font-size: 0.65rem; font-weight: 800; letter-spacing: 3px;
+            color: #ff4444; background: rgba(0,0,0,0.6);
+            padding: 3px 12px; border-radius: 2px; white-space: nowrap;
+        }
+
+        .hero-visual { position: relative; opacity: 0; animation: fadeIn 1.2s ease 0.6s forwards; }
+        .hero-image-frame {
+            position: relative; border-radius: 12px; overflow: hidden;
+            aspect-ratio: 4/3; background: var(--navy-mid);
+        }
+        .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-image-placeholder {
+            width: 100%; height: 100%; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--green-fairway), var(--green-light));
+            color: rgba(255,255,255,0.9); font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem; text-align: center; padding: 40px;
+        }
+        .hero-image-placeholder .icon { font-size: 3rem; margin-bottom: 12px; }
+
+        .soldout-badge {
+            display: inline-block; background: rgba(255, 68, 68, 0.15);
+            border: 1px solid rgba(255, 68, 68, 0.3); border-radius: 6px;
+            padding: 6px 18px; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase; color: #ff6b6b;
+            margin-bottom: 20px;
+            opacity: 0; animation: fadeUp 0.8s ease 0.85s forwards;
+        }
+
+        .hero-stats {
+            display: flex; gap: 40px; margin-top: 40px; padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0; animation: fadeUp 0.8s ease 1.1s forwards;
+        }
+        .hero-stat .number {
+            font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+            font-weight: 600; color: var(--gold);
+        }
+        .hero-stat .label {
+            font-size: 0.78rem; color: var(--text-light);
+            text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
+        }
+
+        /* ── SECTION STYLING ── */
+        .section { padding: var(--section-pad) 0; }
+        .section-dark { background: var(--navy); color: var(--white); }
+        .section-alt { background: var(--white); }
+        .section-tag {
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: block;
+        }
+        .section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 20px; }
+        .section-intro {
+            font-size: 1.05rem; color: var(--text-muted); max-width: 640px;
+            line-height: 1.8; margin-bottom: 48px;
+        }
+        .section-dark .section-intro { color: var(--text-light); }
+
+        /* ── FORMÅL ── */
+        .purpose-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .purpose-text p { margin-bottom: 20px; line-height: 1.9; }
+        .purpose-text p:first-of-type::first-letter {
+            font-family: 'Cormorant Garamond', serif; font-size: 3.5rem;
+            float: left; margin-right: 10px; margin-top: 4px; line-height: 1;
+            color: var(--gold); font-weight: 600;
+        }
+        .purpose-highlights { display: grid; gap: 20px; }
+        .purpose-card {
+            background: var(--cream); border: 1px solid var(--cream-dark);
+            border-radius: 8px; padding: 28px; transition: all 0.3s;
+            position: relative; overflow: hidden;
+        }
+        .purpose-card::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+            width: 3px; background: var(--gold); transform: scaleY(0); transition: transform 0.3s;
+        }
+        .purpose-card:hover::before { transform: scaleY(1); }
+        .purpose-card:hover { transform: translateX(4px); }
+        .purpose-card h4 { font-size: 1.15rem; margin-bottom: 8px; color: var(--navy); }
+        .purpose-card p { font-size: 0.92rem; color: var(--text-muted); }
+
+        /* ── PROGRAM ── */
+        .program-timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .program-timeline::before {
+            content: ''; position: absolute; left: 80px; top: 0; bottom: 0;
+            width: 2px; background: linear-gradient(to bottom, var(--gold), rgba(232, 167, 51, 0.2));
+        }
+        .program-item { display: flex; align-items: flex-start; gap: 32px; margin-bottom: 32px; position: relative; }
+        .program-time {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+            font-weight: 600; color: var(--gold); min-width: 70px;
+            text-align: right; padding-top: 4px;
+        }
+        .program-dot {
+            width: 14px; height: 14px; border-radius: 50%;
+            background: var(--gold); border: 3px solid var(--navy);
+            flex-shrink: 0; margin-top: 8px; position: relative; z-index: 1;
+        }
+        .program-content h4 { font-size: 1.1rem; color: var(--white); margin-bottom: 4px; }
+        .program-content p { font-size: 0.9rem; color: var(--text-light); }
+        .program-date-badge { text-align: center; margin-bottom: 48px; }
+        .program-date-badge .date {
+            display: inline-block; background: var(--gold-dim);
+            border: 1px solid rgba(232, 167, 51, 0.3); border-radius: 8px;
+            padding: 16px 40px; font-family: 'Cormorant Garamond', serif;
+        }
+        .program-date-badge .day { font-size: 2.5rem; font-weight: 600; color: var(--gold); display: block; }
+        .program-date-badge .month-year { font-size: 1rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px; }
+
+        /* ── SPILFORMAT ── */
+        .format-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .format-card {
+            background: var(--white); border: 1px solid var(--cream-dark);
+            border-radius: 8px; padding: 36px 28px; text-align: center; transition: all 0.3s;
+        }
+        .format-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); border-color: var(--gold); }
+        .format-icon { font-size: 2.2rem; margin-bottom: 16px; }
+        .format-card h4 { font-size: 1.15rem; color: var(--navy); margin-bottom: 10px; }
+        .format-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+        /* ── SPONSORER (flat) ── */
+        .sponsor-grid-flat {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px; margin-bottom: 40px;
+        }
+        .sponsor-card {
+            background: var(--navy-light); border: 1px solid rgba(232, 167, 51, 0.15);
+            border-radius: 8px; padding: 28px 20px; text-align: center;
+            width: 100%; transition: all 0.3s;
+        }
+        .sponsor-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+        .sponsor-card .sponsor-logo {
+            height: 50px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 12px; font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem; color: var(--gold); font-weight: 600; opacity: 0.7;
+        }
+        .sponsor-card .sponsor-name { font-size: 0.85rem; color: var(--text-light); font-weight: 500; }
+        .sponsor-cta { text-align: center; margin-top: 40px; }
+        .sponsor-cta p { color: var(--text-light); margin-bottom: 16px; }
+
+        /* ── HOLDEJERE ── */
+        .teams-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .team-card {
+            background: var(--white); border: 1px solid var(--cream-dark);
+            border-radius: 8px; padding: 24px; display: flex;
+            align-items: center; gap: 16px; transition: all 0.3s;
+        }
+        .team-card:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .team-avatar {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: var(--gold-dim); display: flex; align-items: center;
+            justify-content: center; font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem; font-weight: 600; color: var(--gold); flex-shrink: 0;
+        }
+        .team-info h4 { font-size: 1rem; color: var(--navy); margin-bottom: 2px; }
+        .team-info p { font-size: 0.82rem; color: var(--text-muted); }
+        .team-soldout-banner {
+            grid-column: 1 / -1; text-align: center; padding: 20px;
+            background: rgba(232, 167, 51, 0.08); border: 1px dashed var(--gold);
+            border-radius: 8px;
+        }
+        .team-soldout-banner p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 4px; }
+        .team-soldout-banner .small { font-size: 0.82rem; color: var(--gold); font-weight: 600; }
+
+        /* ── HISTORIE ── */
+        .history-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+        .history-text p { margin-bottom: 20px; line-height: 1.9; color: var(--text-light); }
+        .history-milestones { display: flex; flex-direction: column; gap: 20px; }
+        .milestone {
+            display: flex; gap: 20px; align-items: flex-start; padding: 20px;
+            background: rgba(232, 167, 51, 0.05); border-radius: 8px; border-left: 3px solid var(--gold);
+        }
+        .milestone-year {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;
+            font-weight: 600; color: var(--gold); min-width: 60px;
+        }
+        .milestone-text h4 { font-size: 0.95rem; color: var(--white); margin-bottom: 4px; }
+        .milestone-text p { font-size: 0.85rem; color: var(--text-light); }
+
+        /* ── DONATIONER ── */
+        .donations-layout { max-width: 800px; margin: 0 auto; }
+        .donation-total {
+            text-align: center; padding: 48px; background: var(--white);
+            border-radius: 12px; border: 1px solid var(--cream-dark); margin-bottom: 36px;
+        }
+        .donation-total .amount {
+            font-family: 'Cormorant Garamond', serif; font-size: 3.5rem;
+            font-weight: 700; color: var(--gold); margin-bottom: 8px;
+        }
+        .donation-total .subtitle {
+            font-size: 0.9rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        .donation-years { display: grid; gap: 16px; }
+        .donation-year-card {
+            display: flex; align-items: center; gap: 20px; padding: 24px;
+            background: var(--white); border-radius: 8px; border: 1px solid var(--cream-dark);
+            transition: all 0.3s;
+        }
+        .donation-year-card:hover { border-color: var(--gold); }
+        .donation-year-card .dy-year {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;
+            font-weight: 600; color: var(--gold); min-width: 60px;
+        }
+        .donation-year-card .dy-info h4 { font-size: 1rem; color: var(--navy); margin-bottom: 4px; }
+        .donation-year-card .dy-info p { font-size: 0.88rem; color: var(--text-muted); }
+        .donation-year-card .dy-amount {
+            margin-left: auto; font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem; font-weight: 600; color: var(--gold); white-space: nowrap;
+        }
+
+        /* ── ARRANGØRER ── */
+        .organizers-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+        }
+        .organizer-card {
+            background: var(--navy-light); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px; padding: 32px 24px; text-align: center; transition: all 0.3s;
+        }
+        .organizer-card:hover { border-color: rgba(232, 167, 51, 0.3); transform: translateY(-3px); }
+        .organizer-avatar {
+            width: 90px; height: 90px; border-radius: 50%;
+            background: var(--gold-dim); display: flex; align-items: center;
+            justify-content: center; margin: 0 auto 16px;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+            font-weight: 600; color: var(--gold); overflow: hidden;
+        }
+        .organizer-avatar img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .organizer-card h4 { font-size: 1.1rem; color: var(--white); margin-bottom: 4px; }
+        .organizer-card .role {
+            font-size: 0.82rem; color: var(--gold); text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 8px;
+        }
+        .organizer-card p { font-size: 0.88rem; color: var(--text-light); }
+
+        /* ── VÆRTSKLUB ── */
+        .venue-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .venue-image {
+            border-radius: 12px; overflow: hidden; aspect-ratio: 16/10;
+            background: linear-gradient(135deg, var(--green-fairway), var(--green-light));
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.8); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+        }
+        .venue-image img { width: 100%; height: 100%; object-fit: cover; }
+        .venue-details h3 { font-size: 1.8rem; color: var(--navy); margin-bottom: 16px; }
+        .venue-details p { margin-bottom: 16px; color: var(--text-muted); line-height: 1.8; }
+        .venue-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+        .venue-fact { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-dark); }
+        .venue-fact .vf-icon {
+            width: 32px; height: 32px; border-radius: 6px;
+            background: var(--gold-dim); display: flex; align-items: center;
+            justify-content: center; font-size: 0.9rem; flex-shrink: 0;
+        }
+
+        /* ── VEJRUDSIGT ── */
+        .weather-widget {
+            max-width: 600px; margin: 0 auto;
+            background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+            border-radius: 16px; padding: 40px; text-align: center;
+            border: 1px solid rgba(232, 167, 51, 0.15);
+        }
+        .weather-icon { font-size: 4rem; margin-bottom: 12px; }
+        .weather-temp {
+            font-family: 'Cormorant Garamond', serif; font-size: 3.5rem;
+            font-weight: 300; color: var(--white);
+        }
+        .weather-desc { font-size: 1rem; color: var(--text-light); margin-bottom: 24px; }
+        .weather-details {
+            display: flex; justify-content: center; gap: 32px;
+            padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .weather-detail .wd-value {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+            font-weight: 600; color: var(--gold);
+        }
+        .weather-detail .wd-label {
+            font-size: 0.75rem; color: var(--text-light);
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .weather-note { font-size: 0.82rem; color: var(--text-light); margin-top: 20px; font-style: italic; }
+
+        /* ── PRAKTISK INFO ── */
+        .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .info-card {
+            background: var(--navy-light); border-radius: 8px; padding: 32px 24px;
+            border: 1px solid rgba(255,255,255,0.06); transition: all 0.3s;
+        }
+        .info-card:hover { border-color: rgba(232, 167, 51, 0.2); }
+        .info-card .ic-icon { font-size: 1.8rem; margin-bottom: 16px; }
+        .info-card h4 { font-size: 1.05rem; color: var(--white); margin-bottom: 8px; }
+        .info-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
+
+        /* ── CTA / KONTAKT FORM ── */
+        .contact-section { background: var(--navy); padding: var(--section-pad) 0; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+        .contact-intro { color: var(--text-light); }
+        .contact-intro h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--white); margin-bottom: 16px; }
+        .contact-intro p { line-height: 1.8; margin-bottom: 20px; }
+        .contact-intro .contact-email {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--gold); font-weight: 600; margin-top: 8px;
+        }
+        .contact-form { display: flex; flex-direction: column; gap: 16px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-field { display: flex; flex-direction: column; gap: 6px; }
+        .form-field label {
+            font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--gold);
+        }
+        .form-field input, .form-field select, .form-field textarea {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 6px; padding: 12px 16px; color: var(--white);
+            font-family: 'DM Sans', sans-serif; font-size: 0.92rem;
+            transition: border-color 0.3s; outline: none;
+        }
+        .form-field input::placeholder, .form-field textarea::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+        .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+            border-color: var(--gold);
+        }
+        .form-field select { cursor: pointer; appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 16px center;
+        }
+        .form-field select option { background: var(--navy); color: var(--white); }
+        .form-field textarea { resize: vertical; min-height: 100px; }
+        .form-submit {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 8px; padding: 14px 36px; background: var(--gold);
+            color: var(--navy); font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem; font-weight: 700; border: none;
+            border-radius: 4px; cursor: pointer; transition: all 0.3s;
+            align-self: flex-start;
+        }
+        .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(232, 167, 51, 0.3); }
+        .form-success {
+            display: none; text-align: center; padding: 40px;
+            background: rgba(232, 167, 51, 0.08); border: 1px solid rgba(232, 167, 51, 0.2);
+            border-radius: 8px;
+        }
+        .form-success.show { display: block; }
+        .form-success h3 { color: var(--gold); font-size: 1.4rem; margin-bottom: 8px; }
+        .form-success p { color: var(--text-light); }
+
+        .cta-banner { background: var(--gold); padding: 60px 0; text-align: center; }
+        .cta-banner h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--navy); margin-bottom: 12px; }
+        .cta-banner p { color: rgba(14, 50, 104, 0.7); margin-bottom: 28px; font-size: 1.05rem; }
+        .btn-navy { background: var(--navy); color: var(--white); padding: 14px 36px; }
+        .btn-navy:hover { background: var(--navy-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(14, 50, 104, 0.3); }
+
+        /* ── FAQ ── */
+        .faq-list { max-width: 760px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--cream-dark); padding: 20px 0; }
+        .faq-question {
+            width: 100%; background: none; border: none;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+            font-weight: 500; color: var(--navy); text-align: left;
+            cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; padding: 0; line-height: 1.4;
+        }
+        .faq-question .arrow { font-size: 1.2rem; color: var(--gold); transition: transform 0.3s; flex-shrink: 0; margin-left: 16px; }
+        .faq-item.open .arrow { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+        .faq-item.open .faq-answer { max-height: 300px; padding-top: 12px; }
+        .faq-answer p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.8; }
+
+        /* ── FOOTER ── */
+        .footer { background: var(--navy); padding: 60px 0 30px; color: var(--text-light); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand .footer-logo {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+            font-weight: 600; color: var(--white); margin-bottom: 12px;
+        }
+        .footer-brand .footer-logo span { color: var(--gold); }
+        .footer-brand p { font-size: 0.88rem; line-height: 1.7; }
+        .footer-col h4 {
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;
+            color: var(--gold); margin-bottom: 16px;
+            font-family: 'DM Sans', sans-serif; font-weight: 600;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 8px; }
+        .footer-col a { font-size: 0.88rem; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+            display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem;
+        }
+        .footer-social { display: flex; gap: 16px; }
+        .footer-social a {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(255,255,255,0.06); display: flex;
+            align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.3s;
+        }
+        .footer-social a:hover { background: var(--gold); color: var(--navy); }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        /* Fallback: if JS hasn't run after 2s, show everything */
+        @keyframes revealFallback { to { opacity: 1; transform: translateY(0); } }
+        .reveal { animation: revealFallback 0s 1.5s forwards; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 968px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-sub { margin: 0 auto 20px; }
+            .hero-actions { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-visual { display: none; }
+            .purpose-grid { grid-template-columns: 1fr; }
+            .format-cards { grid-template-columns: 1fr 1fr; }
+            .history-content { grid-template-columns: 1fr; }
+            .donations-layout { max-width: 100%; }
+            .venue-showcase { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .organizers-grid { grid-template-columns: 1fr 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: rgba(14, 50, 104, 0.98); padding: 20px; gap: 16px;
+            }
+            .format-cards { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .teams-grid { grid-template-columns: 1fr; }
+            .organizers-grid { grid-template-columns: 1fr; }
+            .venue-facts { grid-template-columns: 1fr; }
+            .hero-stats { flex-wrap: wrap; gap: 20px; }
+            .donation-year-card { flex-wrap: wrap; }
+            .donation-year-card .dy-amount { margin-left: 0; margin-top: 8px; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        /* ── ADMIN MODULE ── */
+        .admin-trigger {
+            background: none; border: none; cursor: pointer;
+            color: rgba(255,255,255,0.3); font-size: 0.7rem; padding: 4px 8px;
+            transition: color 0.3s; margin-left: 12px;
+        }
+        .admin-trigger:hover { color: rgba(255,255,255,0.6); }
+        .admin-overlay {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85); z-index: 9999; overflow-y: auto;
+        }
+        .admin-overlay.open { display: block; }
+        .admin-login {
+            max-width: 360px; margin: 15vh auto; background: var(--navy-light);
+            border-radius: 12px; padding: 40px; text-align: center;
+            border: 1px solid rgba(232,167,51,0.2);
+        }
+        .admin-login h3 { color: var(--gold); font-size: 1.4rem; margin-bottom: 20px; }
+        .admin-login input {
+            width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12); border-radius: 6px;
+            color: white; font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+            text-align: center; outline: none; margin-bottom: 16px;
+        }
+        .admin-login input:focus { border-color: var(--gold); }
+        .admin-login button {
+            background: var(--gold); color: var(--navy); border: none; padding: 10px 32px;
+            border-radius: 4px; font-weight: 700; cursor: pointer; font-size: 0.9rem;
+        }
+        .admin-login .error { color: #ff6b6b; font-size: 0.82rem; margin-top: 8px; display: none; }
+        .admin-panel {
+            max-width: 1100px; margin: 40px auto; padding: 0 20px;
+        }
+        .admin-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 32px; padding-bottom: 16px;
+            border-bottom: 1px solid rgba(232,167,51,0.2);
+        }
+        .admin-header h2 { color: var(--gold); font-size: 1.6rem; }
+        .admin-close {
+            background: none; border: 1px solid rgba(255,255,255,0.2); color: white;
+            padding: 8px 20px; border-radius: 4px; cursor: pointer; font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        .admin-close:hover { border-color: var(--gold); color: var(--gold); }
+        .admin-section { margin-bottom: 40px; }
+        .admin-section h3 {
+            color: var(--gold); font-size: 1.2rem; margin-bottom: 16px;
+            padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .admin-table {
+            width: 100%; border-collapse: collapse; font-size: 0.88rem;
+        }
+        .admin-table th {
+            text-align: left; padding: 10px 12px; background: rgba(232,167,51,0.1);
+            color: var(--gold); font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 1px; border-bottom: 2px solid rgba(232,167,51,0.2);
+        }
+        .admin-table td {
+            padding: 10px 12px; color: var(--text-light); border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .admin-table tr:hover td { background: rgba(255,255,255,0.03); }
+        .admin-table input, .admin-table select {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+            color: white; padding: 6px 10px; border-radius: 4px; width: 100%;
+            font-family: 'DM Sans', sans-serif; font-size: 0.85rem; outline: none;
+        }
+        .admin-table input:focus, .admin-table select:focus { border-color: var(--gold); }
+        .admin-table select { cursor: pointer; }
+        .admin-table select option { background: var(--navy); }
+        .admin-btn-row {
+            display: flex; gap: 8px; margin-top: 12px;
+        }
+        .admin-btn-add {
+            background: rgba(232,167,51,0.15); color: var(--gold); border: 1px dashed rgba(232,167,51,0.3);
+            padding: 8px 20px; border-radius: 4px; cursor: pointer; font-size: 0.82rem;
+            font-weight: 600; transition: all 0.3s;
+        }
+        .admin-btn-add:hover { background: rgba(232,167,51,0.25); }
+        .admin-btn-del {
+            background: none; border: none; color: #ff6b6b; cursor: pointer;
+            font-size: 0.8rem; padding: 4px 8px; opacity: 0.5; transition: opacity 0.3s;
+        }
+        .admin-btn-del:hover { opacity: 1; }
+        .admin-btn-save {
+            background: var(--gold); color: var(--navy); border: none; padding: 10px 28px;
+            border-radius: 4px; font-weight: 700; cursor: pointer; font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        .admin-btn-save:hover { transform: translateY(-1px); }
+        .admin-save-msg { color: var(--gold); font-size: 0.82rem; margin-left: 12px; opacity: 0; transition: opacity 0.3s; }
+        .admin-textarea {
+            width: 100%; min-height: 200px; background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1); color: white; padding: 16px;
+            border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+            line-height: 1.7; resize: vertical; outline: none;
+        }
+        .admin-textarea:focus { border-color: var(--gold); }
+
+        /* ── DIAGONAL HERO BANNER ── */
+        .hero-banner-diagonal {
+            position: absolute;
+            top: 38px;
+            right: -52px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--navy);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.15rem;
+            padding: 12px 60px;
+            transform: rotate(14deg);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.2) inset;
+            letter-spacing: 0.3px;
+            text-align: center;
+            max-width: 380px;
+            line-height: 1.3;
+            z-index: 10;
+            animation: bannerPulse 3s ease-in-out infinite;
+        }
+        @keyframes bannerPulse {
+            0%, 100% { transform: rotate(14deg) scale(1); }
+            50% { transform: rotate(14deg) scale(1.03); }
+        }
+        @media (max-width: 968px) {
+            .hero-banner-diagonal { display: none; }
+        }
+
+        /* ── AUCTION HIGHLIGHT ── */
+        .auction-highlight {
+            max-width: 900px; margin: 48px auto 0;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(232,167,51,0.15);
+            border-radius: 12px; padding: 32px;
+            display: grid; grid-template-columns: 280px 1fr; gap: 32px;
+            align-items: center;
+        }
+        .auction-highlight img {
+            width: 100%; border-radius: 8px; display: block;
+        }
+        .auction-highlight .ah-tag {
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--gold);
+            display: block; margin-bottom: 8px;
+        }
+        .auction-highlight h4 {
+            font-size: 1.4rem; color: var(--white); margin-bottom: 12px;
+        }
+        .auction-highlight p {
+            color: var(--text-light); line-height: 1.7; margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        .auction-highlight .ah-sponsor {
+            font-size: 0.85rem; color: var(--gold); font-style: italic;
+            margin-top: 12px;
+        }
+        @media (max-width: 720px) {
+            .auction-highlight { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-logo"><img src="crk_charity_logo.png" alt="Charlottenlund Rotary Klub – Charity Golf" style="height: 90px; vertical-align: middle;"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#formaal">Formål</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#format">Spilformat</a></li>
+                <li><a href="#sponsorer">Sponsorer</a></li>
+                <li><a href="#donationer">Donationer</a></li>
+                <li><a href="#hold">Hold</a></li>
+                <li><a href="#praktisk">Praktisk</a></li>
+                <li><a href="#kontakt" class="nav-cta-next">Næste år?</a></li>
+            </ul>
+            <button class="admin-trigger" id="adminTrigger" title="Admin">&#9881;</button>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero" id="top">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-tag">Charlottenlund Rotary Klub — Charity</span>
+                    <h1>Når golf gør en <em>forskel.</em></h1>
+                    <p class="hero-sub">
+                        CRK Charity Golf samler erhvervsliv, golfentusiaster og lokale ildsjæle om én fælles mission: at skabe varig positiv forandring gennem velgørenhed, fællesskab og en fantastisk dag på banen.
+                    </p>
+                    <div class="soldout-badge" style="background: rgba(232,167,51,0.15); border-color: rgba(232,167,51,0.3); color: var(--gold);">Få ledige pladser</div>
+                    <p style="font-size: 0.78rem; color: var(--text-light); margin-bottom: 16px; opacity: 0.7;">* Vi har et enkelt hold hvor du kan melde dig individuelt</p>
+                    <div class="hero-actions">
+                        <a href="#kontakt" class="btn btn-gold">Tilmeld dit hold</a>
+                        <a href="#kontakt" class="btn btn-gold">Jeg vil vide mere om næste års arrangement</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="number">20</div>
+                            <div class="label">Hold</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="number">3.</div>
+                            <div class="label">År</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="number">100%</div>
+                            <div class="label">Ubeskåret til velgørenhed</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-frame" style="position: relative;">
+                        <img src="billede_1.jpg" alt="CRK Charity Golf 2026" style="width:100%;height:100%;object-fit:cover;">
+                        <div class="hero-banner-diagonal">Uffe Holm er igen i år vores underholdende auktionarius</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FORMÅL ═══════════════ -->
+    <section class="section section-alt" id="formaal">
+        <div class="container">
+            <div class="purpose-grid reveal">
+                <div class="purpose-text">
+                    <span class="section-tag">Vores mission</span>
+                    <h2 class="section-title">Golf med <em>mening.</em></h2>
+                    <p>Charlottenlund Rotary Charity Golf er mere end en turnering. Det er en årlig tradition, der forener glæden ved golf med et dybt engagement i at gøre en forskel – lokalt og globalt.</p>
+                    <p>Hvert år samler vi erhvervsledere, iværksættere og golfentusiaster til en dag, hvor konkurrencelysten og fællesskabet mødes om et fælles formål: at støtte værdigt trængende gennem donationer til nøje udvalgte velgørende organisationer.</p>
+                    <p>100% af overskuddet fra turneringen går ubeskåret til velgørenhed. Det er et løfte, vi aldrig kompromitterer.</p>
+                </div>
+                <div class="purpose-highlights">
+                    <div class="purpose-card">
+                        <h4>Lokalt engagement</h4>
+                        <p>Vi finder hvert år værdigt trængende – og kommunikerer naturligvis til alle sponsorer hvem og hvad de indsamlede midler går til.</p>
+                    </div>
+                    <div class="purpose-card">
+                        <h4>Internationalt udsyn</h4>
+                        <p>Bidrag til Rotary Foundations globale projekter inden for uddannelse, sundhed, rent vand og fattigdomsbekæmpelse.</p>
+                    </div>
+                    <div class="purpose-card">
+                        <h4>Fællesskab og netværk</h4>
+                        <p>En dag der styrker relationer på tværs af brancher og skaber nye forbindelser med et fælles formål.</p>
+                    </div>
+                    <div class="purpose-card">
+                        <h4>Rotarys værdier</h4>
+                        <p>Service Above Self – Vi bygger på Rotarys grundlæggende princip om at sætte andre før os selv.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ PROGRAM 2026 ═══════════════ -->
+    <section class="section section-dark" id="program">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Program 2026</span>
+                <h2 class="section-title">Dagens <em>program.</em></h2>
+                <p class="section-intro">En velstruktureret dag med plads til netværk, konkurrence og velgørenhed.</p>
+            </div>
+
+            <div class="program-date-badge reveal">
+                <div class="date">
+                    <span class="day">18</span>
+                    <span class="month-year">Maj 2026</span>
+                </div>
+            </div>
+
+            <div class="program-timeline reveal">
+                <div class="program-item">
+                    <div class="program-time">08:00</div>
+                    <div class="program-dot"></div>
+                    <div class="program-content">
+                        <h4>Registrering & morgenmad</h4>
+                        <p>Check-in og morgenmad i klubhuset med live musik af Lune Carlsen</p>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="program-time">08:30</div>
+                    <div class="program-dot"></div>
+                    <div class="program-content">
+                        <h4>Velkomst & briefing</h4>
+                        <p>Præsentation af dagens format, regler og årets velgørende formål</p>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="program-time">09:00</div>
+                    <div class="program-dot"></div>
+                    <div class="program-content">
+                        <h4>Opvarmning</h4>
+                        <p>Tid til at varme op på driving range og putting green</p>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="program-time">09:30</div>
+                    <div class="program-dot"></div>
+                    <div class="program-content">
+                        <h4>Gunstart på alle 18 huller</h4>
+                        <p>Alle hold starter samtidig fra deres respektive huller. Professionelle golfspillere vil være til stede rundt om på banen og gøre dagen ekstra begivenhedsrig</p>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="program-time">14:00</div>
+                    <div class="program-dot"></div>
+                    <div class="program-content">
+                        <h4>Turnering slutter</h4>
+                        <p>Scoreindlevering</p>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="program-time">14:30</div>
+                    <div class="program-dot"></div>
+                    <div class="program-content">
+                        <h4>Frokost</h4>
+                        <p>Frokost i klubhuset med live musik af Lune Carlsen<br><em>Inkl. 1 øl/vand pr. person</em></p>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="program-time">15:00</div>
+                    <div class="program-dot"></div>
+                    <div class="program-content">
+                        <h4>Velgørenhedsauktion</h4>
+                        <p>Live-auktion med Uffe Holm som auktionarius – en gentleman der gentager successen fra 2025</p>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="program-time">15:45</div>
+                    <div class="program-dot"></div>
+                    <div class="program-content">
+                        <h4>Præmieoverrækkelse</h4>
+                        <p>Kåring af vindere og overrækkelse af årets præmier</p>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="program-time">16:00</div>
+                    <div class="program-dot"></div>
+                    <div class="program-content">
+                        <h4>Tak for i dag</h4>
+                        <p>Afsluttende ord og farvel til en fantastisk dag</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal" style="max-width: 800px; margin: 48px auto 0; padding: 32px 36px; background: rgba(255,255,255,0.04); border-radius: 8px;">
+                <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 16px;">Underholdning &amp; oplevelser</h4>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 10px;"><strong>Grillpølse</strong> og brød på hul 9. <em>Drikkevarer for egen regning.</em></p>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 10px;"><strong>Lune Carlsen</strong> underholder os under morgenmaden og frokosten.</p>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 10px;"><strong>Uffe Holm</strong> har igen i år tilbudt at være vores energiske auktionarius.</p>
+                <p style="font-size: 0.95rem; color: var(--text-light);">Endvidere har vi fået tilsagn fra flere <strong>pro’er</strong>, der vil gøre dagen endnu mere underholdende ude på banen.</p>
+            </div>
+        </div>
+            <div class="reveal auction-highlight">
+                <img src="auktion_rungsted.png" alt="Auktionselement: 18 huller på Rungsted Golfklub">
+                <div>
+                    <span class="ah-tag">Et af auktionens højdepunkter</span>
+                    <h4>18 huller på Rungsted Golfklub</h4>
+                    <p>Med Oliver Suhr &amp; Uffe Holm — 6 personer inkl. frokost.</p>
+                    <p><strong>Værdi 25.000 kr.</strong></p>
+                    <p class="ah-sponsor">Sponseret af Oliver Suhr &amp; Uffe Holm</p>
+                </div>
+            </div>
+    </section>
+    <!-- ═══════════════ SPILFORMAT ═══════════════ -->
+    <section class="section" id="format">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Turneringsformat</span>
+                <h2 class="section-title">Spilformat & <em>regler.</em></h2>
+                <p class="section-intro">En inkluderende turnering hvor alle niveauer kan deltage og bidrage til holdet.</p>
+            </div>
+            <div class="format-cards reveal">
+                <div class="format-card">
+                    <div class="format-icon">🏌️</div>
+                    <h4>Fourball/bestball</h4>
+                    <p>Hold på 4 spillere. De 3 bedste stbf. scorer tæller på hvert hul.</p>
+                </div>
+                <div class="format-card">
+                    <div class="format-icon">🎯</div>
+                    <h4>Gunstart</h4>
+                    <p>Alle hold starter samtidig fra hver deres hul kl. 09:30. Sikrer effektiv afvikling og fælles afslutning.</p>
+                </div>
+                <div class="format-card">
+                    <div class="format-icon">🏆</div>
+                    <h4>Specialpræmier</h4>
+                    <p>Længste drive, tættest på pinden på alle par 3 huller og holdkonkurrence. Spændende præmier fra vores sponsorer.</p>
+                </div>
+                <div class="format-card">
+                    <div class="format-icon">💎</div>
+                    <h4>HIO Diamant Challenge</h4>
+                    <p>Hole-in-One Diamant Challenge til en værdi af 100.000,-. Rammer du hullet, vinder du diamanten!</p>
+                </div>
+                <div class="format-card">
+                    <div class="format-icon">📋</div>
+                    <h4>Handicap</h4>
+                    <p>Alle med gyldigt DGU-kort kan deltage. Spilles med fuldt handicap.</p>
+                </div>
+                <div class="format-card">
+                    <div class="format-icon">⏱️</div>
+                    <h4>Spilletempo</h4>
+                    <p>Max 4 timer og 30 minutter for 18 huller. Marshals er på banen for at sikre et godt flow for alle hold.</p>
+                </div>
+                </div>
+    </section>
+
+
+    <!-- ═══════════════ SPONSORER ═══════════════ -->
+    <section class="section section-dark" id="sponsorer">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Vores sponsorer</span>
+                <h2 class="section-title">Tak til dem der gør det <em>muligt.</em></h2>
+                <p class="section-intro">Uden vores dedikerede sponsorer ville CRK Charity Golf ikke være mulig. Hvert sponsorat går direkte til at gøre en forskel.</p>
+            </div>
+            <div class="sponsor-grid-flat reveal">
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Zoran Jurese</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Performance Management</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">State Energy</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Georg Jensen</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Dirks Jewellery</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Wilson</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Kjær & Sommerfeldt</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Niklas Nørgaard</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Uffe Holm</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Eagle Club</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Dulong</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Michael Gravgaard</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">TaylorMade</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Ledreborg Golfklub</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Hornbæk Golfklub</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Golfkompagniet</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Jeff Winther</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Søren Kjeldsen</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Michel Normann Sculptures</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Jardex</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Smørum Golfklub</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">Lune Carlsen</div>
+                    <div class="sponsor-name">Sponsor</div>
+                </div>
+            </div>
+            <div class="sponsor-cta reveal">
+                <p>Vil din virksomhed være med til at gøre en forskel?</p>
+                <a href="mailto:friisnaes@gmail.com?subject=Sponsorat%20CRK%20Charity%20Golf" class="btn btn-gold">Bliv sponsor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ HOLDEJERE ═══════════════ -->
+    <section class="section" id="hold">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Deltagere 2026</span>
+                <h2 class="section-title">20 hold — <em>få ledige pladser.</em></h2>
+                <p class="section-intro">Næsten alle 20 holdpladser til CRK Charity Golf 2026 er solgt — der er få ledige pladser tilbage.<br><small style="opacity: 0.7;">* Vi har et enkelt hold hvor du kan melde dig individuelt</small></p>
+            </div>
+            <div class="teams-grid reveal">
+                                <div class="team-card"><div class="team-avatar">1</div><div class="team-info"><h4>Guldsmed Dirks Rødovre A/S</h4><p><em>Henrik Knakkergaard</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">2</div><div class="team-info"><h4>Performance Management</h4><p><em>Thomas Friisnæs</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">3</div><div class="team-info"><h4>Showbizz Danmark</h4><p><em>P.H. Jacobsen</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">4</div><div class="team-info"><h4>Freitag</h4><p><em>Jesper Freitag</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">5</div><div class="team-info"><h4>Crowe</h4><p><em>Lasse Nørgaard</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">6</div><div class="team-info"><h4>CPHPRO-1</h4><p><em>Jan Westergaard</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">7</div><div class="team-info"><h4>CPHPRO-2</h4><p><em>Jan Westergaard</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">8</div><div class="team-info"><h4>Jardex</h4><p><em>Stefan Jardorf</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">9</div><div class="team-info"><h4>SIF</h4><p><em>Christian Bondegaard</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">10</div><div class="team-info"><h4>Simple Solution IT</h4><p><em>Christian Skotte</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">11</div><div class="team-info"><h4>LAUREN Erhvervsrengøring A/S</h4><p><em>Lau Laursen</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">12</div><div class="team-info"><h4>Karlsby</h4><p><em>Ole Hansen</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">13</div><div class="team-info"><h4>Kim Holm</h4><p><em>Kim Holm, Søllerød</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">14</div><div class="team-info"><h4>Goldschmidt</h4><p><em>Peter Goldschmidt</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">15</div><div class="team-info"><h4>Refima Capital Management</h4><p><em>Nicolai Wenck</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">16</div><div class="team-info"><h4>Karhofs Mavericks</h4><p><em>Nicolai Karhof</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">17</div><div class="team-info"><h4>Frederiksberg Vægtfabrik</h4><p><em>Kasper Thygesen</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">18</div><div class="team-info"><h4>JustSupreme ApS</h4><p><em>Per Andersen, Simons GK</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">19</div><div class="team-info"><h4>Gimpel</h4><p><em>Morten Gimpel</em></p></div></div>
+                <div class="team-card"><div class="team-avatar">20</div><div class="team-info"><h4>Singlerne</h4></div></div>
+                                                <div class="team-soldout-banner">
+                    <p>Få ledige pladser tilbage</p>
+                    <span class="small">* Vi har et enkelt hold hvor du kan melde dig individuelt</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ HISTORIE ═══════════════ -->
+    <section class="section section-dark" id="historie">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Vores historie</span>
+                <h2 class="section-title">CRK Charity gennem <em>årene.</em></h2>
+            </div>
+            <div class="history-content reveal">
+                <div class="history-text">
+                    <p>Charlottenlund Rotary Klub har en stolt tradition for velgørenhed. CRK Charity Golf blev født i 2024 ud af en simpel idé: at samle erhvervslivet om golf og velgørenhed – og sende hver eneste krone videre til dem, der har brug for den.</p>
+                    <p>På blot tre år er turneringen vokset fra 18 til 20 hold og har været udsolgt eller næsten udsolgt i god tid før turneringen hvert eneste år. Det vidner om et stærkt fællesskab og en reel lyst til at gøre en forskel.</p>
+                    <p>Fra den første donation på DKK 25.000 til Røde Kors i 2024 til DKK 191.000 til Legeheltene i 2025 – væksten har været markant. Og vi er kun lige begyndt.</p>
+                </div>
+                <div class="history-milestones">
+                    <div class="milestone">
+                        <div class="milestone-year">2024</div>
+                        <div class="milestone-text">
+                            <h4>Første turnering — Roskilde Golfklub</h4>
+                            <p>Udsolgt · 18 hold · Indsamlet DKK 25.000,-</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-year">2025</div>
+                        <div class="milestone-text">
+                            <h4>Hornbæk Golfklub</h4>
+                            <p>Udsolgt · 22 hold · Indsamlet DKK 191.000,-</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-year">2026</div>
+                        <div class="milestone-text">
+                            <h4>Hornbæk Golfklub — 18. maj 2026</h4>
+                            <p>Få ledige pladser · 20 hold · Vores største turnering til dato</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ DONATIONER ═══════════════ -->
+    <section class="section" id="donationer">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Velgørenhed</span>
+                <h2 class="section-title">Hvor pengene gør <em>gavn.</em></h2>
+                <p class="section-intro">Hver eneste krone fra CRK Charity Golf går ubeskåret til velgørenhed. Ingen administration, ingen fradrag – 100% til formålet.</p>
+            </div>
+            <div class="donations-layout reveal">
+                <div class="donation-total">
+                    <div class="amount">216.000,-</div>
+                    <div class="subtitle">Kroner doneret i alt</div>
+                </div>
+                <div class="donation-years">
+                    <div class="donation-year-card">
+                        <div class="dy-year">2024</div>
+                        <div class="dy-info">
+                            <h4>Røde Kors</h4>
+                            <p>DKK 25.000,- doneret ubeskåret</p>
+                        </div>
+                        <div class="dy-amount">25.000,-</div>
+                    </div>
+                    <div class="donation-year-card">
+                        <div class="dy-year">2025</div>
+                        <div class="dy-info">
+                            <h4>Legeheltene</h4>
+                            <p>DKK 191.000,- doneret ubeskåret · Overleveres 13. maj 2026</p>
+                        </div>
+                        <div class="dy-amount">191.000,-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ ARRANGØRER ═══════════════ -->
+    <section class="section section-dark" id="arrangoerer">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Bag turneringen</span>
+                <h2 class="section-title">Arrangører & <em>frivillige kræfter.</em></h2>
+                <p class="section-intro">CRK Charity Golf drives udelukkende af frivillige kræfter fra Charlottenlund Rotary Klub.</p>
+            </div>
+            <div class="organizers-grid reveal">
+                <div class="organizer-card">
+                    <div class="organizer-avatar"><img src="henrik_knakkergaard.jpeg" alt="Henrik Knakkergaard"></div>
+                    <h4>Henrik Knakkergaard</h4>
+                    <div class="role">Arrangør</div>
+                    <p>Frivillig · Charlottenlund Rotary Klub</p>
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-avatar"><img src="mads_vibe_hastrup.jpeg" alt="Mads Vibe-Hastrup"></div>
+                    <h4>Mads Vibe-Hastrup</h4>
+                    <div class="role">Arrangør</div>
+                    <p>Frivillig · Charlottenlund Rotary Klub</p>
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-avatar"><img src="lasse_jensen.avif" alt="Lasse Jensen"></div>
+                    <h4>Lasse Jensen</h4>
+                    <div class="role">Arrangør</div>
+                    <p>Frivillig · Charlottenlund Rotary Klub</p>
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-avatar"><img src="thomas_friisnaes.jpeg" alt="Thomas Friisnæs"></div>
+                    <h4>Thomas Friisnæs</h4>
+                    <div class="role">Arrangør</div>
+                    <p>Frivillig · Charlottenlund Rotary Klub</p>
+                </div>
+            </div>
+            <p class="reveal" style="text-align: center; margin-top: 32px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--text-light);">"Arrangørerne har tilsammen præsteret 19 hole-in-ones og 4 albatrosser" 😄</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════ VÆRTSKLUB ═══════════════ -->
+    <section class="section section-alt" id="vaertsklub">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Værtsklub 2026</span>
+                <h2 class="section-title">Hornbæk <em>Golfklub.</em></h2>
+            </div>
+            <div class="venue-showcase reveal">
+                <div class="venue-image">
+                    <img src="billede_2.jpg" alt="Hornbæk Golfklub – luftfoto" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="venue-details">
+                    <h3>Hornbæk Golfklub</h3>
+                    <p>Hornbæk Golfklub danner for andet år i træk rammen om CRK Charity Golf. Med sine naturskønne omgivelser i det nordsjællandske landskab og en velplejet bane byder klubben på en golfoplevelse i særklasse.</p>
+                    <p>Klubhuset rummer faciliteter til både netværk, frokost og præmieoverrækkelse, og personalet er klar til at sikre en professionel oplevelse fra start til slut.</p>
+                    <div class="venue-facts">
+                        <div class="venue-fact"><div class="vf-icon">📍</div><span>Bøtterupvej 2C, 3100 Hornbæk</span></div>
+                        <div class="venue-fact"><div class="vf-icon">🕳️</div><span>18 huller · Par 72</span></div>
+                        <div class="venue-fact"><div class="vf-icon">📏</div><span>5.843 meter</span></div>
+                        <div class="venue-fact"><div class="vf-icon">🏠</div><span>Fuldt klubhus</span></div>
+                        <div class="venue-fact"><div class="vf-icon">🅿️</div><span>Gratis parkering</span></div>
+                        <div class="venue-fact"><div class="vf-icon">🍽️</div><span>Restaurant & terrasse</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal" style="margin-top: 48px; text-align: center;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 20px;">Scorekort — Hornbæk Golfklub, 18 huller</h3>
+                <div style="max-width: 700px; margin: 0 auto; border-radius: 8px; overflow: hidden; border: 1px solid var(--cream-dark); box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                    <img src="billede_3.jpeg" alt="Scorekort – Hornbæk Golfklub 18H" style="width: 100%; display: block;">
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 12px;">DGU – Hornbæk 18H – Par 72 – 5.843 meter</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ VEJRUDSIGT ═══════════════ -->
+    <section class="section" id="vejr">
+        <div class="container">
+            <div class="reveal" style="text-align: center;">
+                <span class="section-tag">Vejrudsigt</span>
+                <h2 class="section-title">Vejret den <em>18. maj.</em></h2>
+                <p class="section-intro" style="margin: 0 auto 40px;">Opdateret vejrudsigt for turneringsdagen. Tjek tilbage tættere på datoen for den nyeste prognose.</p>
+            </div>
+            <div class="weather-widget reveal">
+                <div class="weather-icon">☀️</div>
+                <div class="weather-temp">— °C</div>
+                <div class="weather-desc">Vejrudsigt opdateres tættere på 18. maj 2026</div>
+                <div class="weather-details">
+                    <div class="weather-detail"><div class="wd-value">—</div><div class="wd-label">Vind</div></div>
+                    <div class="weather-detail"><div class="wd-value">—</div><div class="wd-label">Nedbør</div></div>
+                    <div class="weather-detail"><div class="wd-value">—</div><div class="wd-label">Solop/ned</div></div>
+                </div>
+                <p class="weather-note">Vejrdata for Hornbæk hentes automatisk 7 dage før turneringen</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ PRAKTISK INFO ═══════════════ -->
+    <section class="section section-dark" id="praktisk">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Praktisk information</span>
+                <h2 class="section-title">Alt du skal <em>vide.</em></h2>
+                <p class="section-intro">Praktiske detaljer for en ubesværet dag på banen.</p>
+            </div>
+            <div class="info-grid reveal">
+                <div class="info-card">
+                    <div class="ic-icon">💰</div>
+                    <h4>Deltagergebyr</h4>
+                    <p>DKK 8.000,- pr. hold (4 spillere). Inkluderer greenfee, morgenmad, frokost og goodie bag. 100% overskud går ubeskåret til velgørenhed.</p>
+                </div>
+                <div class="info-card">
+                    <div class="ic-icon">🏌️‍♂️</div>
+                    <h4>Udstyr</h4>
+                    <p>Medbring eget udstyr. Golfvogne kan lejes ved klubben (begrænset antal – book i forvejen). Afstandsmålere tilladt.</p>
+                </div>
+                <div class="info-card">
+                    <div class="ic-icon">🎁</div>
+                    <h4>Goodie bag</h4>
+                    <p>Alle deltagere modtager en goodie bag med lidt snacks og drikke ved registrering.</p>
+                </div>
+                <div class="info-card">
+                    <div class="ic-icon">📱</div>
+                    <h4>Scoring</h4>
+                    <p>Digital scoring via GolfBox. Download appen inden turneringen. Papirscorecard udleveres også ved registrering.</p>
+                </div>
+                <div class="info-card">
+                    <div class="ic-icon">📋</div>
+                    <h4>DGU-kort</h4>
+                    <p>Alle spillere skal have gyldigt DGU-kort med aktivt handicap. Husk at medbringe det på dagen.</p>
+                </div>
+                <div class="info-card">
+                    <div class="ic-icon">📞</div>
+                    <h4>Kontakt</h4>
+                    <p>Spørgsmål? Kontakt arrangørerne på <a href="mailto:friisnaes@gmail.com" style="color: var(--gold);">friisnaes@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FAQ ═══════════════ -->
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Ofte stillede spørgsmål</span>
+                <h2 class="section-title">Spørgsmål & <em>svar.</em></h2>
+            </div>
+            <div class="faq-list reveal">
+                <div class="faq-item">
+                    <button class="faq-question">Skal alle spillere have DGU-kort? <span class="arrow">▼</span></button>
+                    <div class="faq-answer"><p>Ja, alle spillere skal have gyldigt DGU-kort med aktivt handicap.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Hvad er inkluderet i deltagergebyret? <span class="arrow">▼</span></button>
+                    <div class="faq-answer"><p>Greenfee, morgenmad, frokost og goodie bag.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Er der ledige pladser? <span class="arrow">▼</span></button>
+                    <div class="faq-answer"><p>Der er få ledige pladser tilbage. Kontakt os hurtigst muligt hvis du vil sikre dig en plads — eller meld dig individuelt til vores åbne hold.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Kan vores virksomhed blive sponsor? <span class="arrow">▼</span></button>
+                    <div class="faq-answer"><p>Ja! Kontakt os på <a href="mailto:friisnaes@gmail.com" style="color: var(--gold);">friisnaes@gmail.com</a> for at høre om mulighederne.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Er der mulighed for at donere uden at spille? <span class="arrow">▼</span></button>
+                    <div class="faq-answer"><p>Ja, vi tager gerne imod donationer fra virksomheder og privatpersoner, der ønsker at støtte formålet uden at deltage i selve turneringen. Kontakt os for mere information.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Hvad sker der ved dårligt vejr? <span class="arrow">▼</span></button>
+                    <div class="faq-answer"><p>Turneringen gennemføres som udgangspunkt i alt vejr. Ved ekstrem vejr (tordenvejr eller kraftig storm) kan turneringsledelsen beslutte at afkorte eller udsætte. Information sendes via SMS og opdateres på hjemmesiden.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ KONTAKT ═══════════════ -->
+    <section class="contact-section" id="kontakt">
+        <div class="container">
+            <div class="contact-grid reveal">
+                <div class="contact-intro">
+                    <span class="section-tag">Kontakt</span>
+                    <h2>Skal vi tage en <em>kort samtale?</em></h2>
+                    <p>Uanset om du vil vide mere om næste års turnering, sponsormuligheder eller har andre spørgsmål – så skriv til os. Vi vender tilbage hurtigst muligt.</p>
+                    <p>Der er stadig få ledige pladser til 2026. Kontakt os nu hvis du vil med.</p>
+                    <div class="contact-email">
+                        <span>✉</span> <a href="mailto:friisnaes@gmail.com" style="color: var(--gold);">friisnaes@gmail.com</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="cf-name">Navn</label>
+                                <input type="text" id="cf-name" placeholder="Dit fulde navn" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="cf-company">Firma</label>
+                                <input type="text" id="cf-company" placeholder="Virksomhedsnavn">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="cf-email">Email</label>
+                                <input type="email" id="cf-email" placeholder="din@email.dk" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="cf-phone">Telefon</label>
+                                <input type="tel" id="cf-phone" placeholder="+45 XX XX XX XX">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="cf-interest">Hvad vil du gerne vide mere om?</label>
+                            <select id="cf-interest">
+                                <option value="" disabled selected>Vælg</option>
+                                <option value="2026">Tilmelding 2026 (få pladser)</option>
+                                <option value="2027">Næste års turnering (2027)</option>
+                                <option value="sponsor">Sponsormuligheder</option>
+                                <option value="donation">Donation uden deltagelse</option>
+                                <option value="andet">Andet</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="cf-message">Besked (valgfrit)</label>
+                            <textarea id="cf-message" placeholder="Skriv gerne kort hvad der har din interesse..."></textarea>
+                        </div>
+                        <button type="button" class="form-submit" id="contactSubmit">Send besked</button>
+                    </div>
+                    <div class="form-success" id="formSuccess">
+                        <h3>Tak for din henvendelse!</h3>
+                        <p>Vi vender tilbage hurtigst muligt. Du er nu på vores radar for 2027.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><img src="crk_charity_logo.png" alt="Charlottenlund Rotary Klub – Charity Golf" style="height: 70px; vertical-align: middle;"></div>
+                    <p>Charlottenlund Rotary Klub – Charity Golf. Når golf gør en forskel. 100% af overskuddet går ubeskåret til velgørenhed.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Event</h4>
+                    <ul>
+                        <li><a href="#program">Program</a></li>
+                        <li><a href="#format">Spilformat</a></li>
+                        <li><a href="#hold">Holdejere</a></li>
+                        <li><a href="#praktisk">Praktisk info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Om os</h4>
+                    <ul>
+                        <li><a href="#formaal">Formål</a></li>
+                        <li><a href="#donationer">Donationer</a></li>
+                        <li><a href="#historie">Historie</a></li>
+                        <li><a href="#arrangoerer">Arrangører</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><a href="mailto:friisnaes@gmail.com">Email os</a></li>
+                        <li><a href="#kontakt">Næste års arrangement</a></li>
+                        <li><a href="#sponsorer">Sponsormuligheder</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Charlottenlund Rotary Klub. Alle rettigheder forbeholdes.</span>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">ig</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+                            
+    
+    <!-- ADMIN MODULE -->
+    <div class="admin-overlay" id="adminOverlay">
+        <div class="admin-login" id="adminLogin">
+            <h3>Admin</h3>
+            <input type="password" id="adminPw" placeholder="Adgangskode">
+            <br>
+            <button id="adminLoginBtn">Log ind</button>
+            <div class="error" id="adminError">Forkert adgangskode</div>
+        </div>
+        <div class="admin-panel" id="adminPanel" style="display:none;">
+            <div class="admin-header">
+                <h2>CRK Charity Golf &mdash; Admin</h2>
+                <button class="admin-close" id="adminCloseBtn">Luk admin</button>
+            </div>
+            <div class="admin-section">
+                <h3>Sponsorer &mdash; AFVENTER <span style="font-size:0.7rem;opacity:0.5;font-family:'DM Sans',sans-serif;">(drag r&aelig;kke til Bekr&aelig;ftet)</span></h3>
+                <table class="admin-table" id="tblPending">
+                    <thead><tr><th style="width:100px">Ansvarlig</th><th>Sponsor</th><th style="width:40px"></th></tr></thead>
+                    <tbody id="tbPendBody"></tbody>
+                </table>
+                <div class="admin-btn-row"><button class="admin-btn-add" data-table="tblPending" data-cols="2">+ Tilf&oslash;j</button></div>
+            </div>
+            <div class="admin-section">
+                <h3>Sponsorer &mdash; BEKR&AElig;FTET</h3>
+                <table class="admin-table" id="tblConfirmed">
+                    <thead><tr><th style="width:100px">Ansvarlig</th><th>Sponsor</th><th>Sponsorat</th><th style="width:40px"></th></tr></thead>
+                    <tbody id="tbConfBody"></tbody>
+                </table>
+                <div class="admin-btn-row"><button class="admin-btn-add" data-table="tblConfirmed" data-cols="3">+ Tilf&oslash;j sponsor</button></div>
+            </div>
+            <div class="admin-section">
+                <h3>Andre bidragydere</h3>
+                <table class="admin-table" id="tblContributors">
+                    <thead><tr><th style="width:100px">Ansvarlig</th><th>Bidragyder</th><th style="width:120px">Status</th><th style="width:40px"></th></tr></thead>
+                    <tbody id="tbContrBody"></tbody>
+                </table>
+                <div class="admin-btn-row"><button class="admin-btn-add" data-table="tblContributors" data-cols="3">+ Tilf&oslash;j</button></div>
+            </div>
+            <div class="admin-section">
+                <h3>Alt det andet</h3>
+                <textarea class="admin-textarea" id="adminNotes" placeholder="Notater, opgaver, huskeliste..."></textarea>
+            </div>
+            <div class="admin-btn-row" style="margin-top:24px;margin-bottom:60px;">
+                <button class="admin-btn-save" id="adminSaveBtn">Gem alt</button>
+                <span class="admin-save-msg" id="adminSaveMsg">Gemt!</span>
+            </div>
+        </div>
+    </div>
+
+                                    <script>
+        var AHASH='81b84ac273db5e0ee87c5ceef56af61c7588432474f148a1e2570337baee89bb';var DC=[["HK", "Zoran Jurese", "Maleri 25.000,-"], ["TF", "Performance Management", "5 flasker spiritus"], ["MVH", "State Energy", "2*100 drinks/bars"], ["HK", "Georg Jensen", "20.000,-"], ["HK", "Dirks Jewellery", "20.000,-"], ["HK", "Wilson", "Ny LAB putter 4,5K"], ["HK/PH", "Kjær & Sommerfeldt", "Vin til holdene"], ["HK", "Niklas Nørgaard", "Bag og wedges"], ["MVH", "Uffe Holm", "Auktionarius - sælge sig selv"], ["HK", "Eagle Club", "Gavekort - 4*400,- simulatorgolf (4*1 time)"], ["HK", "Dulong", "Gavekort 10.000,-"], ["TF", "Michael Gravgaard", "Gavekort 5.000,-"], ["HK", "TaylorMade", "Golfbolde"], ["HK", "Ledreborg Golfklub", "4x greenfee+burgers"], ["HK", "Hornbæk Golfklub", "Diverse"], ["LJ", "Golfkompagniet", "Fittet Mizuno bag, jern, wedges, køller til 30K - kostpris 11K"], ["LJ", "Jeff Winther", "Bag/wedges"], ["LJ", "Søren Kjeldsen", "Bag/wedges"], ["HK", "Michel Normann", "Skulptur 8-15000,-"], ["HK", "Jardex, Stefan Jardorf", "Habitjakke Oscar Jacobson 3.999,-"], ["TF", "Smørum Golfklub", "4x greenfee+burgers"]];var DP=[["LJ", "5 stjerner gavekort/donation"], ["TF", "Michael Lerche donation"], ["HK", "Ole Mathiesen (ure)"], ["HK", "Henning Stæhr"], ["HK", "Arp Hansen"], ["MVH", "Theis Wine"], ["HK", "Københavnercafeen"], ["LJ/MVH", "Uffe/Oliver pakke"], ["LJ/MVH", "Risikofri rejse"], ["LJ/MVH", "Fribilletter World Tour"], ["MVH", "Gavekort fra Leif 10.000,-"], ["HK", "Rolex risikofrit (Boucherer)"], ["HK", "Kaufmann"]];var DT=[["", "Uffe Holm, auktionarius", "Bekræftet"], ["", "Xander (hul 17)", "Bekræftet"], ["", "Garde (beat the pro)", "Bekræftet"], ["", "Joachim B (beat the pro)", "Måske"], ["HK", "Suhr (på hold?)", ""], ["", "Adamsen Deli?", ""], ["MVH", "Gøth", "Åben"], ["", "Søren Kjeldsen", "Kan ikke"], ["", "Jeff Winther", "Kan ikke"], ["", "Langkilde", "Åben"]];
+        var nav=document.getElementById('nav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>50);});var mt=document.getElementById('mobileToggle'),nl=document.getElementById('navLinks');mt.addEventListener('click',function(){nl.classList.toggle('open');});nl.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){nl.classList.remove('open');});});document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});var revs=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){var ro=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});revs.forEach(function(el){ro.observe(el);});}else{revs.forEach(function(el){el.classList.add('visible');});}setTimeout(function(){revs.forEach(function(el){el.classList.add('visible');});},2000);document.querySelectorAll('.faq-question').forEach(function(b){b.addEventListener('click',function(){var it=b.closest('.faq-item');var wo=it.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});if(!wo)it.classList.add('open');});});
+        document.getElementById('contactSubmit').addEventListener('click',function(){var n=document.getElementById('cf-name').value.trim();var c=document.getElementById('cf-company').value.trim();var e=document.getElementById('cf-email').value.trim();var p=document.getElementById('cf-phone').value.trim();var i=document.getElementById('cf-interest').value;var m=document.getElementById('cf-message').value.trim();if(!n||!e){alert('Udfyld venligst navn og email.');return;}var lb={'2026':'Tilmelding 2026','2027':'Turnering 2027','sponsor':'Sponsormuligheder','donation':'Donation','andet':'Andet'};var su='CRK Charity Golf'+(i?' - '+lb[i]:'');var bo='Navn: '+n+'\n';if(c)bo+='Firma: '+c+'\n';bo+='Email: '+e+'\n';if(p)bo+='Telefon: '+p+'\n';if(i)bo+='Interesse: '+lb[i]+'\n';if(m)bo+='\nBesked:\n'+m+'\n';var ad=['friisnaes','gmail.com'].join('@');window.location.href='mailto:'+ad+'?subject='+encodeURIComponent(su)+'&body='+encodeURIComponent(bo);document.getElementById('contactForm').style.display='none';document.getElementById('formSuccess').classList.add('show');});
+        document.getElementById('adminTrigger').addEventListener('click',function(){document.getElementById('adminOverlay').classList.add('open');document.getElementById('adminPw').focus();});function sha256(s){var b=new TextEncoder().encode(s);return crypto.subtle.digest('SHA-256',b).then(function(h){return Array.from(new Uint8Array(h)).map(function(x){return x.toString(16).padStart(2,'0');}).join('');});}document.getElementById('adminLoginBtn').addEventListener('click',function(){sha256(document.getElementById('adminPw').value).then(function(h){if(h===AHASH){document.getElementById('adminLogin').style.display='none';document.getElementById('adminPanel').style.display='block';loadAD();}else{document.getElementById('adminError').style.display='block';document.getElementById('adminPw').value='';}});});document.getElementById('adminPw').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('adminLoginBtn').click();});document.getElementById('adminCloseBtn').addEventListener('click',function(){document.getElementById('adminOverlay').classList.remove('open');document.getElementById('adminLogin').style.display='block';document.getElementById('adminPanel').style.display='none';document.getElementById('adminPw').value='';document.getElementById('adminError').style.display='none';});
+        function addR(tid,cols,vals,drag){var tb=document.getElementById(tid).querySelector('tbody');var tr=document.createElement('tr');if(drag){tr.draggable=true;tr.style.cursor='grab';tr.addEventListener('dragstart',function(e){var v=[];tr.querySelectorAll('input').forEach(function(i){v.push(i.value);});e.dataTransfer.setData('text/plain',JSON.stringify(v));tr.style.opacity='0.4';window._ds=tr;});tr.addEventListener('dragend',function(){tr.style.opacity='1';});}for(var c=0;c<cols;c++){var td=document.createElement('td');var inp=document.createElement('input');inp.type='text';inp.value=vals&&vals[c]?vals[c]:'';td.appendChild(inp);tr.appendChild(td);}var td2=document.createElement('td');td2.style.width='40px';var db=document.createElement('button');db.className='admin-btn-del';db.textContent='\u2715';db.addEventListener('click',function(){tr.remove();});td2.appendChild(db);tr.appendChild(td2);tb.appendChild(tr);}
+        var cb=document.getElementById('tbConfBody');cb.addEventListener('dragover',function(e){e.preventDefault();cb.style.outline='2px dashed rgba(232,167,51,0.5)';});cb.addEventListener('dragleave',function(){cb.style.outline='none';});cb.addEventListener('drop',function(e){e.preventDefault();cb.style.outline='none';try{var d=JSON.parse(e.dataTransfer.getData('text/plain'));addR('tblConfirmed',3,[d[0],d[1],'']);if(window._ds)window._ds.remove();}catch(ex){}});
+        document.querySelectorAll('.admin-btn-add').forEach(function(b){b.addEventListener('click',function(){addR(b.dataset.table,parseInt(b.dataset.cols),null,b.dataset.table==='tblPending');});});function getTD(tid){var rs=[];document.getElementById(tid).querySelectorAll('tbody tr').forEach(function(tr){var r=[];tr.querySelectorAll('input').forEach(function(i){r.push(i.value);});rs.push(r);});return rs;}document.getElementById('adminSaveBtn').addEventListener('click',function(){var d={confirmed:getTD('tblConfirmed'),pending:getTD('tblPending'),contributors:getTD('tblContributors'),notes:document.getElementById('adminNotes').value};localStorage.setItem('crk_admin',JSON.stringify(d));var mg=document.getElementById('adminSaveMsg');mg.style.opacity='1';setTimeout(function(){mg.style.opacity='0';},2000);});
+        function loadAD(){var raw=localStorage.getItem('crk_admin');var d=raw?JSON.parse(raw):null;var co=d&&d.confirmed?d.confirmed:DC;var pe=d&&d.pending?d.pending:DP;var ct=d&&d.contributors?d.contributors:DT;pe.forEach(function(r){addR('tblPending',2,r,true);});co.forEach(function(r){addR('tblConfirmed',3,r);});ct.forEach(function(r){addR('tblContributors',3,r);});if(d&&d.notes)document.getElementById('adminNotes').value=d.notes;}
+    </script>
+</body>
+</html>
