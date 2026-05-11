@@ -536,7 +536,7 @@
         .auction-item .ai-value { color: var(--gold); font-weight: 700; font-size: 0.9rem; white-space: nowrap; }
 
         /* ── DIAGONAL BANNER ── */
-        .hero-diagonal { position: absolute; left: 5%; right: 5%; top: 25%; transform: rotate(-8deg); z-index: 3; pointer-events: none; text-align: center; }
+        .hero-diagonal { position: absolute; left: -20%; right: -10%; top: 12%; transform: rotate(-8deg); z-index: 3; pointer-events: none; text-align: center; }
         .hero-diagonal span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.8rem; color: var(--gold); text-shadow: 0 2px 12px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.5); letter-spacing: 1px; animation: pulse 3s ease-in-out infinite; white-space: nowrap; }
         @keyframes pulse { 0%,100%{opacity:0.85} 50%{opacity:1} }
         @media (max-width: 968px) { .hero-diagonal { display: none; } }
@@ -547,17 +547,16 @@
     <!-- ═══════════════ NAVIGATION ═══════════════ -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="#top" class="nav-logo" style="display:flex;align-items:center;gap:10px;"><img src="crk_charity_logo.png" alt="CRK" style="height:60px; transition: height 0.3s;">CRK <span>Charity</span></a>
+            <a href="#top" class="nav-logo" style="display:flex;align-items:center;gap:10px;"><img src="crk_charity_logo.png" alt="CRK Charity Golf" style="height:56px; transition: height 0.3s;"></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#formaal">Formål</a></li>
                 <li><a href="#program">Program</a></li>
                 <li><a href="#format">Spilformat</a></li>
                 <li><a href="#sponsorer">Sponsorer</a></li>
-                <li><a href="#donationer">Donationer</a></li>
                 <li><a href="#auktion">Auktion</a></li>
                 <li><a href="#hold">Hold</a></li>
                 <li><a href="#praktisk">Praktisk</a></li>
-                <li><a href="#kontakt" class="nav-cta-next">Næste år?</a></li>
+                <li><a href="#kontakt-form" style="color:var(--gold); font-size:0.78rem;">2027?</a></li>
             </ul>
             <button id="adminTrigger" style="background:none;border:none;color:rgba(255,255,255,0.15);cursor:pointer;font-size:0.9rem;padding:4px;margin-left:4px;" title="Admin">⚙</button>
             <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
@@ -596,13 +595,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-visual">
+                <div class="hero-visual"><div class="hero-diagonal"><span>Uffe Holm er igen i år vores underholdende auktionarius</span></div>
                     <div class="hero-image-frame">
                         <img src="billede_1.jpg" alt="CRK Charity Golf 2026">
                     </div>
                 </div>
             </div>
-            <div class="hero-diagonal"><span>Uffe Holm er igen i år vores underholdende auktionarius</span></div>
         </div>
     </section>
 
