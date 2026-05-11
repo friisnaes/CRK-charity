@@ -68,7 +68,7 @@
             font-weight: 600; color: var(--white); letter-spacing: 0.5px;
         }
         .nav-logo span { color: var(--gold); font-weight: 700; }
-        .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+        .nav-links { display: flex; gap: 16px; list-style: none; align-items: center; }
         .nav-links a {
             color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 500;
             letter-spacing: 0.3px; transition: color 0.3s; text-transform: uppercase;
@@ -76,7 +76,7 @@
         .nav-links a:hover { color: var(--gold); }
         .nav-cta-next {
             background: var(--gold) !important; color: var(--navy) !important;
-            padding: 8px 20px; border-radius: 4px; font-weight: 600 !important;
+            padding: 6px 14px; border-radius: 4px; font-weight: 600 !important; font-size: 0.78rem !important;
             transition: all 0.3s !important; font-size: 0.8rem !important;
         }
         .nav-cta-next:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
@@ -536,9 +536,9 @@
         .auction-item .ai-value { color: var(--gold); font-weight: 700; font-size: 0.9rem; white-space: nowrap; }
 
         /* ── DIAGONAL BANNER ── */
-        .hero-diagonal { position: absolute; right: -40px; top: 35%; transform: rotate(14deg); z-index: 3; pointer-events: none; }
-        .hero-diagonal span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--gold); opacity: 0.7; animation: pulse 3s ease-in-out infinite; white-space: nowrap; }
-        @keyframes pulse { 0%,100%{opacity:0.5} 50%{opacity:0.9} }
+        .hero-diagonal { position: absolute; left: 5%; right: 5%; top: 25%; transform: rotate(-8deg); z-index: 3; pointer-events: none; text-align: center; }
+        .hero-diagonal span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.8rem; color: var(--gold); text-shadow: 0 2px 12px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.5); letter-spacing: 1px; animation: pulse 3s ease-in-out infinite; white-space: nowrap; }
+        @keyframes pulse { 0%,100%{opacity:0.85} 50%{opacity:1} }
         @media (max-width: 968px) { .hero-diagonal { display: none; } }
     </style>
 </head>
@@ -547,7 +547,7 @@
     <!-- ═══════════════ NAVIGATION ═══════════════ -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="#top" class="nav-logo" style="display:flex;align-items:center;gap:10px;"><img src="crk_charity_logo.png" alt="CRK" style="height:90px;">CRK <span>Charity</span></a>
+            <a href="#top" class="nav-logo" style="display:flex;align-items:center;gap:10px;"><img src="crk_charity_logo.png" alt="CRK" style="height:60px; transition: height 0.3s;">CRK <span>Charity</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#formaal">Formål</a></li>
                 <li><a href="#program">Program</a></li>
@@ -559,7 +559,7 @@
                 <li><a href="#praktisk">Praktisk</a></li>
                 <li><a href="#kontakt" class="nav-cta-next">Næste år?</a></li>
             </ul>
-            <button id="adminTrigger" style="background:none;border:none;color:rgba(255,255,255,0.3);cursor:pointer;font-size:1.1rem;padding:8px;" title="Admin">⚙</button>
+            <button id="adminTrigger" style="background:none;border:none;color:rgba(255,255,255,0.15);cursor:pointer;font-size:0.9rem;padding:4px;margin-left:4px;" title="Admin">⚙</button>
             <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
@@ -786,7 +786,7 @@
                 <div class="format-card">
                     <div class="format-icon">🎯</div>
                     <h4>Gunstart</h4>
-                    <p>Alle hold starter samtidig fra hver deres hul kl. 09:30. Sikrer effektiv afvikling og fælles afslutning.<br><em style="font-size:0.82rem; opacity:0.8;">Bemærk: Hul 5-6-7-8 skal indregne ca. 15 minutter til at gå til hullet (i normalt pace).</em><br><strong style="color:var(--gold); font-size:0.92rem;">Pigerne spiller fra tee 51 · Drengene spiller fra tee 58 · Pro'erne fra tee 62</strong></p>
+                    <p>Alle hold starter samtidig fra hver deres hul kl. 09:30. Sikrer effektiv afvikling og fælles afslutning.<br><em style="font-size:0.82rem; opacity:0.8;">Bemærk: Hul 5-6-7-8 skal indregne ca. 15 minutter til at gå til hullet (i normalt pace).</em><br><strong style="color:var(--gold); font-size:0.92rem;">Alle piger spiller fra tee 51, og alle herrer fra tee 58</strong></p>
                 </div>
                 <div class="format-card">
                     <div class="format-icon">🏆</div>
