@@ -549,11 +549,28 @@
         .startliste-toggle.open .arrow { transform: rotate(180deg); }
         .startliste-content { display: none; margin-top: 16px; overflow-x: auto; }
         .startliste-content.open { display: block; }
-        .sl-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+        .sl-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 800px; }
         .sl-table th { background: rgba(201,168,76,0.15); color: var(--gold); padding: 8px 10px; text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; }
-        .sl-table td { padding: 6px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-light); }
+        .sl-table td { padding: 6px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-light); white-space: nowrap; }
+        .sl-table td:nth-child(4) { white-space: normal; min-width: 200px; }
+        .sl-table td:nth-child(5) { white-space: normal; min-width: 160px; }
         .sl-team-header { background: rgba(201,168,76,0.06); }
         .sl-team-header td { color: var(--gold); font-weight: 700; font-size: 0.88rem; padding: 10px; }
+
+        /* ── HERO IMAGE BANNER ── */
+        .hero-image-banner {
+            position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+            background: rgba(10,22,40,0.82);
+            border-top: 3px solid var(--gold);
+            padding: 16px 24px; text-align: center;
+        }
+        .hero-image-banner .hib-amount {
+            font-family: 'Cormorant Garamond', serif; font-weight: 700;
+            font-size: 1.6rem; color: var(--gold); letter-spacing: 1px;
+        }
+        .hero-image-banner .hib-sub {
+            font-size: 0.78rem; color: rgba(255,255,255,0.8); margin-top: 4px;
+        }
     </style>
 </head>
 <body>
@@ -612,6 +629,7 @@
                 <div class="hero-visual"><div class="hero-diagonal"><span>Uffe Holm er igen i år vores underholdende auktionarius</span></div>
                     <div class="hero-image-frame">
                         <img src="billede_1.jpg" alt="CRK Charity Golf 2026">
+                        <div class="hero-image-banner"><div class="hib-amount">DKK 216.311,- doneret</div><div class="hib-sub">100% ubeskåret til velgørenhed · 3. år i træk</div></div>
                     </div>
                 </div>
             </div>
@@ -896,6 +914,7 @@
                 <div class="sponsor-card"><div class="sponsor-logo">Lune Carlsen</div></div>
                 <div class="sponsor-card"><div class="sponsor-logo">Havemøbelland</div></div>
                 <div class="sponsor-card"><div class="sponsor-logo">Theis Vine</div></div>
+                <div class="sponsor-card"><div class="sponsor-logo">Just Drinks A/S</div></div>
             </div>
             <div class="sponsor-cta reveal">
                 <p>Vil din virksomhed være med til at gøre en forskel?</p>
@@ -1021,7 +1040,7 @@
                 <div style="max-width:700px; margin:0 auto; border-radius:10px; overflow:hidden; border:2px solid rgba(201,168,76,0.2);">
                     <img src="legeheltene_2025.jpeg" alt="Overrækkelse af 191.311,- til Legeheltene, 13. maj 2026" style="width:100%; display:block;">
                 </div>
-                <p style="margin-top:16px; font-size:0.88rem; color:var(--text-light); font-style:italic;">
+                <p style="margin-top:16px; font-size:0.88rem; color:var(--navy); opacity:0.7; font-style:italic;">
                     13. maj 2026 — DKK 191.311,- overrakt ubeskåret til Legeheltene/Børneulykkesfonden.<br>
                     Fra venstre: Thomas Friisnæs, Nicolai Karhof, Henriette Madsen, Henrik Knakkergaard.
                 </p>
@@ -1132,7 +1151,7 @@
                 <h4>Startliste — 20 hold, 77 spillere</h4>
                 <span class="arrow">▼</span>
             </div>
-            <div class="startliste-content">
+            <div class="startliste-content" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
                 <table class="sl-table">
                     <thead><tr><th>Match</th><th>Tid</th><th>Hul/Tee</th><th>Spiller</th><th>Klub</th><th>HCP</th></tr></thead>
                     <tbody>
